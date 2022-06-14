@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Timer.JS</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <section class="timer-section">
+            <h1>Timer</h1>
+            <div class="counter-container">
+                <span class="numbers-counter" id="hours_id">00</span>
+                <p>Hours</p>
+                <span class="numbers-counter" id="minutes_id">00</span>
+                <p>Minutes</p>
+                <span class="numbers-counter" id="seconds_id">00</span>
+                <p>Seconds</p>
+                <span class="numbers-counter" id="miliseconds_id">00</span>
+                <p>Miliseconds</p>
+            </div>
+            <div>
+                <button class="action-buttons" type="button" onclick="startTimer()">Start</button>
+                <button class="action-buttons" type="button" onclick="stopTimer()">Stop</button>
+                <button class="action-buttons" type="button" onclick="">Reset</button>
+            </div>
+        </section>
+    </main>
+    <script src="./src/index.js"></script>
+</body>
+</html>
