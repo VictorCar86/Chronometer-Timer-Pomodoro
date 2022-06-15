@@ -8,27 +8,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css">
-    <title>Timer.JS</title>
+    <title>Time JS</title>
 </head>
 <body>
     <header></header>
     <main>
+        <section class="chronometer-section" style="display: none;">
+            <h1>Chronometer</h1>
+            <div class="watchImg">
+                <div class="counter-container">
+                    <span class="numbers-counter" id="chrono_hours_id">00</span>
+                    <p>Hours</p>
+                    <span class="numbers-counter" id="chrono_minutes_id">00</span>
+                    <p>Minutes</p>
+                    <span class="numbers-counter" id="chrono_seconds_id">00</span>
+                    <p>Seconds</p>
+                    <span class="numbers-counter" id="chrono_miliseconds_id">00</span>
+                    <p>Miliseconds</p>
+                </div>
+            </div>
+            <div>
+                <button class="action-buttons" type="button" onclick="startChronometer()">Start</button>
+                <button class="action-buttons" type="button" onclick="stopCounting()">Stop</button>
+                <button class="action-buttons" type="button" onclick="resetChronometer()">Reset</button>
+            </div>
+        </section>
         <section class="timer-section">
             <h1>Timer</h1>
-            <div class="counter-container">
-                <span class="numbers-counter" id="hours_id">00</span>
-                <p>Hours</p>
-                <span class="numbers-counter" id="minutes_id">00</span>
-                <p>Minutes</p>
-                <span class="numbers-counter" id="seconds_id">00</span>
-                <p>Seconds</p>
-                <span class="numbers-counter" id="miliseconds_id">00</span>
-                <p>Miliseconds</p>
+            <div class="watchImg">
+                <div class="counter-container">
+                    <span class="numbers-counter" id="hours_id">00</span>
+                    <p>Hours</p>
+                    <span class="numbers-counter" id="minutes_id">00</span>
+                    <p>Minutes</p>
+                    <span class="numbers-counter" id="seconds_id">00</span>
+                    <p>Seconds</p>
+                    <span class="numbers-counter" id="miliseconds_id">00</span>
+                    <p>Miliseconds</p>
+                </div>
             </div>
             <div>
                 <button class="action-buttons" type="button" onclick="startTimer()">Start</button>
-                <button class="action-buttons" type="button" onclick="stopTimer()">Stop</button>
-                <button class="action-buttons" type="button" onclick="">Reset</button>
+                <button class="action-buttons" type="button" onclick="stopCounting()">Stop</button>
+                <button class="action-buttons" type="button" onclick="resetTimer()">Reset</button>
             </div>
         </section>
     </main>
