@@ -101,3 +101,31 @@ main {
     justify-content: center;
     justify-items: center;
 }
+
+/* Pomodoro section */
+.pomodoro-section {
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+}
+.pomodoro-section h1 {
+    font-size: 4rem;
+    color: white;
+    margin-top: 20px;
+}
+.radioSelectors {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    font-size: 2rem;
+}
+.radioSelectors label {
+    display: block;
+    padding: 0 25px;
+}
+.radioSelectors input {
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
+}

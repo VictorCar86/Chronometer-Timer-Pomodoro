@@ -33,7 +33,7 @@
                 <button class="action-buttons" type="button" onclick="resetChronometer()">Reset</button>
             </div>
         </section>
-        <section class="timer-section">
+        <section class="timer-section" style="display: none;">
             <h1>Timer</h1>
             <div class="watchImg">
                 <div class="counter-container">
@@ -60,6 +60,36 @@
                 <span>Seconds
                     <button class="action-buttons" type="button" onclick="resetTimer()">Reset</button>
                 </span>
+            </div>
+        </section>
+        <section class="pomodoro-section">
+            <h1>Pomodoro</h1>
+            <div class="watchImg">
+                <div class="counter-container">
+                    <span class="numbers-counter" id="chrono_hours_id">00</span>
+                    <p>Hours</p>
+                    <span class="numbers-counter" id="chrono_minutes_id">00</span>
+                    <p>Minutes</p>
+                    <span class="numbers-counter" id="chrono_seconds_id">00</span>
+                    <p>Seconds</p>
+                    <span class="numbers-counter" id="chrono_miliseconds_id">00</span>
+                    <p>Miliseconds</p>
+                </div>
+            </div>
+            <div>
+                <div class="radioSelectors">
+                    <label>
+                        <p>25 Minutes</p>
+                        <input type="radio" name="selectMins">
+                    </label>
+                    <label>
+                        <p>50 Minutes</p>
+                        <input type="radio" name="selectMins">
+                    </label>
+                </div>
+                <button class="action-buttons" type="button" onclick="startChronometer()">Start</button>
+                <button class="action-buttons" type="button" onclick="stopCounting()">Stop</button>
+                <button class="action-buttons" type="button" onclick="resetChronometer()">Reset</button>
             </div>
         </section>
     </main>

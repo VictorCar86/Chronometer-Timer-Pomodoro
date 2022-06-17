@@ -85,7 +85,7 @@ function stopCounting(){
 }
 
 function resetChronometer(){
-    stopChronometer()
+    stopCounting()
     hoursCount = 0;
     minutesCount = 0;
     secondsCount = 0;
@@ -165,3 +165,5 @@ function resetTimer(){
     timerSecondsDigits.innerText = "00"
     timerMilisecondsDigits.innerText = "00"
 }
+
+// Pomodoro
