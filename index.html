@@ -47,10 +47,19 @@
                     <p>Miliseconds</p>
                 </div>
             </div>
-            <div>
-                <button class="action-buttons" type="button" onclick="startTimer()">Start</button>
-                <button class="action-buttons" type="button" onclick="stopCounting()">Stop</button>
-                <button class="action-buttons" type="button" onclick="resetTimer()">Reset</button>
+            <div class="buttonsTimer-section">
+                <input type="number" class="input-timer" id="inputHours" min="0" max="60">
+                <span>Hours
+                    <button class="action-buttons" type="button" onclick="startTimer()">Start</button>
+                </span>
+                <input type="number" class="input-timer" id="inputMinutes" min="0" max="59">
+                <span>Minutes
+                    <button class="action-buttons" type="button" onclick="stopCounting()">Stop</button>
+                </span>
+                <input type="number" class="input-timer" id="inputSeconds" min="0" max="59">
+                <span>Seconds
+                    <button class="action-buttons" type="button" onclick="resetTimer()">Reset</button>
+                </span>
             </div>
         </section>
     </main>

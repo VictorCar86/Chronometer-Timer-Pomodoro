@@ -63,7 +63,7 @@ main {
     width: 90px;
     height: 40px;
     border-radius: 17px;
-    margin: 0 15px;
+    margin: 40px 15px 0;
     font-family: 'Roboto';
     font-size: 2rem;
 }
@@ -77,5 +77,27 @@ main {
 .timer-section h1 {
     font-size: 4rem;
     color: white;
-    margin: 15px 0;
+    margin-top: 20px;
+}
+.input-timer {
+    width: 60px;
+    height: 30px;
+    font-size: 1.6rem;
+    font-family: "Roboto", sans-serif;
+    border-radius: 10px;
+    border: 2px solid rgb(240, 240, 251);
+    text-align: center;
+    padding-left: 12px;
+}
+.input-timer + span {
+    color: white;
+    font-size: 2rem;
+}
+.buttonsTimer-section {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    grid-template-rows: 35px 110px;
+    grid-auto-flow: column;
+    justify-content: center;
+    justify-items: center;
 }
