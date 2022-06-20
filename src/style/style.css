@@ -1,6 +1,6 @@
 @font-face{
     font-family:'digital-clock-font';
-    src: url('../assets/fonts/digital-7.mono.ttf');
+    src: url("../../assets/fonts/digital-7.mono.ttf");
 }
 * {
     box-sizing: border-box;
@@ -11,21 +11,63 @@ html {
     font-size: 62.5%;
     font-family: "Roboto", sans-serif;
 }
+
+/* Navbar section */
+.icons-navigation {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 135px;
+    margin: 0 auto;
+    z-index: 1;
+}
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 3px solid #bdbdbd;
+    height: 60px;
+    width: 70px;
+    background-color: aliceblue;
+}
+.icons {
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+}
+.chrono-icon {
+    background-image: url("../../assets/images/stopwatch.png");
+}
+.timer-icon {
+    background-image: url("../../assets/images/display.png");
+}
+.pomodoro-icon {
+    background-image: url("../../assets/images/tomato.png");
+}
+
+/* Counter section */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: #121f3d;
     width: 100%;
     height: 100vh;
 }
-/* Chronometer section */
-.chronometer-section {
+.counter-section {
     height: fit-content;
     width: fit-content;
     text-align: center;
 }
-.chronometer-section h1 {
+.main-title {
     font-size: 4rem;
     color: white;
     margin: 15px 0;
@@ -38,7 +80,7 @@ main {
     height: 300px;
     margin-left: 30px;
     margin-block: 20px;
-    background-image: url("../assets/images/reloj_analogico_digital.png");
+    background-image: url("../../assets/images/reloj_analogico_digital.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -46,7 +88,7 @@ main {
 .counter-container {
     display: grid;
     grid-template-columns: repeat(4, 105px);
-    grid-template-rows: 40px 20px;
+    grid-template-rows: 65px 20px;
     grid-auto-flow: column;
     justify-content: center;
     color: white;
@@ -57,13 +99,16 @@ main {
 }
 .numbers-counter {
     display: inline-block;
-    font-size: 4rem;
+    font-size: 6rem;
 }
+
+/* Chronometer section */
 .action-buttons {
     width: 90px;
     height: 40px;
     border-radius: 17px;
-    margin: 40px 15px 0;
+    border: 3px solid #bdbdbd;
+    margin: 40px 14px 0;
     font-family: 'Roboto';
     font-size: 2rem;
 }
@@ -73,11 +118,6 @@ main {
     height: fit-content;
     width: fit-content;
     text-align: center;
-}
-.timer-section h1 {
-    font-size: 4rem;
-    color: white;
-    margin-top: 20px;
 }
 .input-timer {
     width: 60px;
@@ -90,6 +130,7 @@ main {
     padding-left: 12px;
 }
 .input-timer + span {
+    padding-top: 6px;
     color: white;
     font-size: 2rem;
 }
@@ -108,24 +149,25 @@ main {
     width: fit-content;
     text-align: center;
 }
-.pomodoro-section h1 {
-    font-size: 4rem;
-    color: white;
-    margin-top: 20px;
-}
-.radioSelectors {
+.radio-selectors {
     display: flex;
     justify-content: center;
     width: 100%;
     color: white;
     font-size: 2rem;
 }
-.radioSelectors label {
+.radio-selectors label {
+    margin-top: 6px;
     display: block;
     padding: 0 25px;
 }
-.radioSelectors input {
+.radio-selectors input {
     margin-top: 10px;
     width: 20px;
     height: 20px;
+}
+
+/* Utils */
+.inactive {
+    display: none;
 }

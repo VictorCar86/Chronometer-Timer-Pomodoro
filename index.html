@@ -7,34 +7,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/style/style.css">
+    <link rel="stylesheet" media="(max-width: 700px)" href="./src/style/mobile.css">
     <title>Time JS</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <nav class="icons-navigation">
+            <div class="icon-container" id="chrono-icon">
+                <span class="chrono-icon icons"></span>
+            </div>
+            <div class="icon-container" id="timer-icon">
+                <span class="timer-icon icons"></span>
+            </div>
+            <div class="icon-container" id="pomodoro-icon">
+                <span class="pomodoro-icon icons"></span>
+            </div>
+        </nav>
+    </header>
     <main>
-        <section class="chronometer-section" style="display: none;">
-            <h1>Chronometer</h1>
-            <div class="watchImg">
-                <div class="counter-container">
-                    <span class="numbers-counter" id="chrono_hours_id">00</span>
-                    <p>Hours</p>
-                    <span class="numbers-counter" id="chrono_minutes_id">00</span>
-                    <p>Minutes</p>
-                    <span class="numbers-counter" id="chrono_seconds_id">00</span>
-                    <p>Seconds</p>
-                    <span class="numbers-counter" id="chrono_miliseconds_id">00</span>
-                    <p>Miliseconds</p>
-                </div>
-            </div>
-            <div>
-                <button class="action-buttons" type="button" onclick="startChronometer()">Start</button>
-                <button class="action-buttons" type="button" onclick="stopCounting()">Stop</button>
-                <button class="action-buttons" type="button" onclick="resetChronometer()">Reset</button>
-            </div>
-        </section>
-        <section class="timer-section" style="display: none;">
-            <h1>Timer</h1>
+        <section class="counter-section">
+            <h1 class="main-title" id="main-title"></h1>
             <div class="watchImg">
                 <div class="counter-container">
                     <span class="numbers-counter" id="hours_id">00</span>
@@ -47,6 +40,13 @@
                     <p>Miliseconds</p>
                 </div>
             </div>
+            <div id="chonometer-inputs">
+                <button class="action-buttons" type="button" onclick="startChronometer()">Start</button>
+                <button class="action-buttons" type="button" onclick="stopCounting()">Stop</button>
+                <button class="action-buttons" type="button" onclick="reset()">Reset</button>
+            </div>
+        </section>
+        <section class="timer-section" id="timer-inputs">
             <div class="buttonsTimer-section">
                 <input type="number" class="input-timer" id="inputHours" min="0" max="60">
                 <span>Hours
@@ -58,41 +58,30 @@
                 </span>
                 <input type="number" class="input-timer" id="inputSeconds" min="0" max="59">
                 <span>Seconds
-                    <button class="action-buttons" type="button" onclick="resetTimer()">Reset</button>
+                    <button class="action-buttons" type="button" onclick="reset()">Reset</button>
                 </span>
             </div>
         </section>
-        <section class="pomodoro-section">
-            <h1>Pomodoro</h1>
-            <div class="watchImg">
-                <div class="counter-container">
-                    <span class="numbers-counter" id="chrono_hours_id">00</span>
-                    <p>Hours</p>
-                    <span class="numbers-counter" id="chrono_minutes_id">00</span>
-                    <p>Minutes</p>
-                    <span class="numbers-counter" id="chrono_seconds_id">00</span>
-                    <p>Seconds</p>
-                    <span class="numbers-counter" id="chrono_miliseconds_id">00</span>
-                    <p>Miliseconds</p>
-                </div>
-            </div>
+        <section class="pomodoro-section" id="pomodoro-inputs">
             <div>
-                <div class="radioSelectors">
+                <div class="radio-selectors">
                     <label>
                         <p>25 Minutes</p>
-                        <input type="radio" name="selectMins">
+                        <input type="radio" name="select-mins" id="25mins_radio">
                     </label>
                     <label>
                         <p>50 Minutes</p>
-                        <input type="radio" name="selectMins">
+                        <input type="radio" name="select-mins" id="50mins_radio">
                     </label>
                 </div>
-                <button class="action-buttons" type="button" onclick="startChronometer()">Start</button>
+                <button class="action-buttons" type="button" onclick="startPomodoro()">Start</button>
                 <button class="action-buttons" type="button" onclick="stopCounting()">Stop</button>
-                <button class="action-buttons" type="button" onclick="resetChronometer()">Reset</button>
+                <button class="action-buttons" type="button" onclick="reset()">Reset</button>
             </div>
         </section>
     </main>
+    <script src="./src/nodes.js"></script>
+    <script src="./src/navigation.js"></script>
     <script src="./src/index.js"></script>
 </body>
 </html>

@@ -1,16 +1,15 @@
-// Chronometer constans
-const chronoHoursDigits = document.getElementById("chrono_hours_id");
-const chronoMinutesDigits = document.getElementById("chrono_minutes_id");
-const chronoSecondsDigits = document.getElementById("chrono_seconds_id");
-const chronoMilisecondsDigits = document.getElementById("chrono_miliseconds_id");
+// Digits constants
+const hoursDigits = document.getElementById("hours_id");
+const minutesDigits = document.getElementById("minutes_id");
+const secondsDigits = document.getElementById("seconds_id");
+const milisecondsDigits = document.getElementById("miliseconds_id");
 // Timer constants
-const timerHoursDigits = document.getElementById("hours_id");
-const timerMinutesDigits = document.getElementById("minutes_id");
-const timerSecondsDigits = document.getElementById("seconds_id");
-const timerMilisecondsDigits = document.getElementById("miliseconds_id");
 const timerInputHours = document.getElementById("inputHours");
 const timerInputMinutes = document.getElementById("inputMinutes");
 const timerInputSeconds = document.getElementById("inputSeconds");
+// Pomodoro constants
+const pomodoro25minsRadio = document.getElementById("25mins_radio")
+const pomodoro50minsRadio = document.getElementById("50mins_radio")
 
 // Main variables
 let intervalFunction;
@@ -47,64 +46,75 @@ checkCorrectNumbers(timerInputHours)
 checkCorrectNumbers(timerInputMinutes)
 checkCorrectNumbers(timerInputSeconds)
 
-// Chronometer
-function startChronometer(){
-    if (!currentButton){
-        currentButton = true
-        intervalFunction = setInterval(()=>{
-            milisecondsCount++
-            addZeros(chronoMilisecondsDigits, milisecondsCount)
-            if (milisecondsCount == 99){
-                secondsCount++
-                addZeros(chronoSecondsDigits, secondsCount)
-                milisecondsCount = 0
-            }
-            if (secondsCount == 59 && milisecondsCount == 98){
-                minutesCount++
-                addZeros(chronoMinutesDigits, minutesCount)
-                milisecondsCount = 0
-                chronoSecondsDigits.innerText = "0" + 0
-                secondsCount = 0
-            }
-            if (minutesCount == 59 && secondsCount == 59 && milisecondsCount == 97){
-                hoursCount++
-                addZeros(chronoHoursDigits, hoursCount)
-                milisecondsCount = 0
-                chronoMinutesDigits.innerText = "0" + 0
-                minutesCount = 0
-                chronoSecondsDigits.innerText = "0" + 0
-                secondsCount = 0
-            }
-        }, 10)
-    }
-}
-
 function stopCounting(){
     currentButton = false
     clearInterval(intervalFunction)
 }
 
-function resetChronometer(){
+function reset(){
     stopCounting()
-    hoursCount = 0;
-    minutesCount = 0;
-    secondsCount = 0;
-    milisecondsCount = 0;
-    chronoHoursDigits.innerText = "00"
-    chronoMinutesDigits.innerText = "00"
-    chronoSecondsDigits.innerText = "00"
-    chronoMilisecondsDigits.innerText = "00"
+    timerNumbersStarted = false
+    hoursCount = 0
+    minutesCount = 0
+    secondsCount = 0
+    milisecondsCount = 0
+    hoursDigits.innerText = "00"
+    minutesDigits.innerText = "00"
+    secondsDigits.innerText = "00"
+    milisecondsDigits.innerText = "00"
+}
+
+// Chronometer
+function startChronometer(pomodoroMode = false){
+    if (!currentButton){
+        currentButton = true
+        intervalFunction = setInterval(()=>{
+            milisecondsCount++
+            addZeros(milisecondsDigits, milisecondsCount)
+            if (milisecondsCount == 99){
+                secondsCount++
+                addZeros(secondsDigits, secondsCount)
+                milisecondsCount = 0
+            }
+            if (secondsCount == 59 && milisecondsCount == 98){
+                minutesCount++
+                addZeros(minutesDigits, minutesCount)
+                milisecondsCount = 0
+                secondsDigits.innerText = "0" + 0
+                secondsCount = 0
+            }
+            if (minutesCount == 59 && secondsCount == 59 && milisecondsCount == 97){
+                hoursCount++
+                addZeros(hoursDigits, hoursCount)
+                milisecondsCount = 0
+                minutesDigits.innerText = "0" + 0
+                minutesCount = 0
+                secondsDigits.innerText = "0" + 0
+                secondsCount = 0
+            }
+            if (pomodoroMode){
+                if (pomodoro25minsRadio.checked && minutesCount == 25){
+                    alert("Time out, please rest 5 minutes")
+                    reset()
+                }
+                if (pomodoro50minsRadio.checked && minutesCount == 50){
+                    alert("Time out, please rest 10 minutes")
+                    reset()
+                }
+            }
+        }, 10)
+    }
 }
 
 // Timer
 function startTimer(){
     if (!timerNumbersStarted){
         hoursCount = Number(timerInputHours.value)
-        timerHoursDigits.innerHTML = "0" + hoursCount
+        hoursDigits.innerHTML = "0" + hoursCount
         minutesCount = Number(timerInputMinutes.value)
-        timerMinutesDigits.innerHTML = "0" + minutesCount
+        minutesDigits.innerHTML = "0" + minutesCount
         secondsCount = Number(timerInputSeconds.value)
-        timerSecondsDigits.innerHTML = "0" + secondsCount
+        secondsDigits.innerHTML = "0" + secondsCount
     }
     if (!hoursCount <= 0 || !minutesCount <= 0 || !secondsCount <= 0){
         if (!currentButton){
@@ -113,57 +123,52 @@ function startTimer(){
 
             intervalFunction = setInterval(()=>{
                 milisecondsCount--
-                addZeros(timerMilisecondsDigits, milisecondsCount)
-                addZeros(timerSecondsDigits, secondsCount)
-                addZeros(timerMinutesDigits, minutesCount)
-                addZeros(timerHoursDigits, hoursCount)
+                console.log(secondsCount)
+                addZeros(milisecondsDigits, milisecondsCount)
+                addZeros(secondsDigits, secondsCount)
+                addZeros(minutesDigits, minutesCount)
+                addZeros(hoursDigits, hoursCount)
                 if (milisecondsCount < 0){
                     secondsCount--
-                    addZeros(timerSecondsDigits, secondsCount)
+                    addZeros(secondsDigits, secondsCount)
                     milisecondsCount = 99
                 }
                 if (secondsCount == -1){
                     minutesCount--
-                    addZeros(timerMinutesDigits, minutesCount)
+                    addZeros(minutesDigits, minutesCount)
                     milisecondsCount = 99
-                    timerSecondsDigits.innerText = 59
+                    secondsDigits.innerText = 59
                     secondsCount = 59
                 }
                 if (minutesCount == -1){
                     hoursCount--
-                    addZeros(timerHoursDigits, hoursCount)
+                    addZeros(hoursDigits, hoursCount)
                     milisecondsCount = 99
-                    timerMinutesDigits.innerText = 59
+                    minutesDigits.innerText = 59
                     minutesCount = 59
-                    timerSecondsDigits.innerText = 59
+                    secondsDigits.innerText = 59
                     secondsCount = 59
                 }
                 if (hoursCount == 0 && minutesCount == 0 && secondsCount == 0 && milisecondsCount == 0){
-                    resetTimer()
+                    reset()
                     alert("Timer finished")
                 }
             }, 10)
         }
     } else {
         alert("Insert a number to continue")
-        timerHoursDigits.innerText = "00"
-        timerMinutesDigits.innerText = "00"
-        timerSecondsDigits.innerText = "00"
-        timerMilisecondsDigits.innerText = "00"
+        hoursDigits.innerText = "00"
+        minutesDigits.innerText = "00"
+        secondsDigits.innerText = "00"
+        milisecondsDigits.innerText = "00"
     }
 }
 
-function resetTimer(){
-    stopCounting()
-    timerNumbersStarted = false
-    hoursCount = 0
-    minutesCount = 0
-    secondsCount = 0
-    milisecondsCount = 0
-    timerHoursDigits.innerText = "00"
-    timerMinutesDigits.innerText = "00"
-    timerSecondsDigits.innerText = "00"
-    timerMilisecondsDigits.innerText = "00"
-}
-
 // Pomodoro
+function startPomodoro(){
+    if (pomodoro25minsRadio.checked || pomodoro50minsRadio.checked){
+        startChronometer(true)
+    } else {
+        alert("Please, select one option to start")
+    }
+}
