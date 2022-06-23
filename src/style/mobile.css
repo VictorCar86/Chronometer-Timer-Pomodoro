@@ -17,5 +17,5 @@
     padding-top: 22px;
 }
 .buttonsTimer-section {
-    grid-template-columns: 100px 100px 100px;
+    grid-template-columns: minmax(100px, 120px) minmax(100px, 120px) 120px;
 }

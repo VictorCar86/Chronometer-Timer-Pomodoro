@@ -1,3 +1,4 @@
+window.addEventListener("DOMContentLoaded", chronometerPage, true);
 window.addEventListener("DOMContentLoaded", navigation, false);
 window.addEventListener("hashchange", navigation, false);
 chronoIcon.addEventListener("click", ()=> location.hash = "#chronometer");
