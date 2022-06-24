@@ -110,11 +110,8 @@ function startChronometer(pomodoroMode = false){
 function startTimer(){
     if (!timerNumbersStarted){
         hoursCount = Number(timerInputHours.value)
-        hoursDigits.innerHTML = "0" + hoursCount
         minutesCount = Number(timerInputMinutes.value)
-        minutesDigits.innerHTML = "0" + minutesCount
         secondsCount = Number(timerInputSeconds.value)
-        secondsDigits.innerHTML = "0" + secondsCount
     }
     if (!hoursCount <= 0 || !minutesCount <= 0 || !secondsCount <= 0){
         if (!currentButton){
@@ -123,7 +120,6 @@ function startTimer(){
 
             intervalFunction = setInterval(()=>{
                 milisecondsCount--
-                console.log(secondsCount)
                 addZeros(milisecondsDigits, milisecondsCount)
                 addZeros(secondsDigits, secondsCount)
                 addZeros(minutesDigits, minutesCount)

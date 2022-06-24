@@ -38,6 +38,9 @@ a {
     width: 70px;
     background-color: aliceblue;
 }
+.icon-container:active {
+    background-color: #cecece;
+}
 .icons {
     display: block;
     background-position: center;
@@ -115,6 +118,10 @@ main {
     margin: 40px 14px 0;
     font-family: 'Roboto';
     font-size: 2rem;
+    cursor: pointer;
+}
+.action-buttons:active {
+    background-color: #cecece;
 }
 
 /* Timer section */
@@ -131,6 +138,11 @@ main {
     border-radius: 10px;
     border: 2px solid rgb(240, 240, 251);
     text-align: center;
+}
+.input-timer::-webkit-inner-spin-button,
+.input-timer::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 .input-timer + span {
     padding-top: 6px;
