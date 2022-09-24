@@ -1,5 +1,12 @@
 # ⏲ Ultimate Timer created with Vanilla JavaScript
-### This project is a Single Page Application, the code was made with HTML, CSS and Vanilla JavaScript
+Timer, chronometer and pomodoro in a single page, where you can take more control of your time on you browser.
+
+### Tools used:
+- HTML - <img src="https://skills.thijs.gg/icons?i=html" width="18px">
+- Vanilla CSS - <img src="https://skills.thijs.gg/icons?i=css" width="18px">
+- Vanilla JS - <img src="https://skills.thijs.gg/icons?i=js" width="18px">
+
+#
 
 ## ⏱ Chronometer
 
@@ -27,6 +34,6 @@
 
 #
 
-### Watch the project here:
+### Watch the project online here 👇
 
-👉 https://victorcar86.github.io/Chronometer-Timer-Pomodoro/
+🔗 [Ultimate Timer](https://victorcar86.github.io/Ultimate-Timer/)
