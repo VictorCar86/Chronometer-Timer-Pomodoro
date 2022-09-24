@@ -1,4 +1,4 @@
-# ⏲ TimeApp created with JavaScript
+# ⏲ Ultimate Timer created with Vanilla JavaScript
 ### This project is a Single Page Application, the code was made with HTML, CSS and Vanilla JavaScript
 
 ## ⏱ Chronometer
